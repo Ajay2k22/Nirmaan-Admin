@@ -1,0 +1,7 @@
+{
+  "name": "nirman-citizen-admin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
