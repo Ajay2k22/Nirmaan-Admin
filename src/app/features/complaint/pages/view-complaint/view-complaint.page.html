@@ -1,0 +1,80 @@
+<ion-content [fullscreen]="false" class="view-complaint-content">
+  <app-dashboard-header title="Nirmaan" subtitle=""></app-dashboard-header>
+  <div class="page-header"><h2>Complaint Details</h2></div>
+
+  <div *ngIf="loading" class="loading">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Loading complaint...</p>
+  </div>
+
+  <div *ngIf="!loading && complaint" class="outer-card">
+    <app-complaint-id-card
+      [complaintId]="complaint.complaintId"
+      [reportedAt]="complaint.createdAt"
+    ></app-complaint-id-card>
+
+    <div class="title-section with-shadow">
+      <h1>{{ complaint.category }} - {{ complaint.title }}</h1>
+      <p>{{ complaint.description }}</p>
+    </div>
+
+    <app-info-chips-row
+      [severity]="complaint.severity"
+      [status]="complaint.status"
+      [category]="complaint.category"
+    ></app-info-chips-row>
+    <app-incident-address-card></app-incident-address-card>
+
+    <app-work-verification-photos
+      [photo]="complaint.photo"
+      [resolvedProof]="complaint.resolvedProofImg"
+      [previewUrl]="previewUrl"
+      [status]="complaint.status"
+      (addImage)="fileInput.click()"
+    >
+    </app-work-verification-photos>
+    <input
+      #fileInput
+      type="file"
+      hidden
+      accept="image/*"
+      (change)="onFileSelected($event)"
+    />
+
+    <app-inspection-notes-card
+      [notes]="complaint.reason"
+    ></app-inspection-notes-card>
+
+    <div class="note-section">
+      <div class="note-head">NOTE / REASON FOR ACTION</div>
+      <textarea
+        *ngIf="!isDisabled"
+        class="native-note"
+        [(ngModel)]="summaryOfIssue"
+        placeholder="Write note - This is fixed, verified on site..."
+      >
+      </textarea>
+      <div *ngIf="isDisabled" class="note-display">
+        {{ summaryOfIssue || complaint.reason || 'This is fixed' }}
+      </div>
+    </div>
+
+    <div class="action-row" *ngIf="!isDisabled">
+      <app-button
+        label="Reject"
+        variant="danger"
+        [loading]="isSubmitting"
+        [disabled]="isDisabled"
+        (clicked)="onReject()"
+      ></app-button>
+      <app-button
+        label="Approve & Resolve"
+        variant="primary"
+        [loading]="isSubmitting"
+        [disabled]="isDisabled"
+        (clicked)="onApprove()"
+      ></app-button>
+    </div>
+  </div>
+  <div style="height: 120px"></div>
+</ion-content>

@@ -12,7 +12,6 @@ $RECYCLE.BIN/
 *.log
 log.txt
 
-
 /.sourcemaps
 /.versions
 /coverage
@@ -22,6 +21,10 @@ log.txt
 /www
 /platforms
 /plugins
+/android
+/ios
+/.capacitor
+/capacitor.config.ts
 
 # Compiled output
 /dist
@@ -34,6 +37,14 @@ log.txt
 npm-debug.log
 yarn-error.log
 
+# Environment - NEVER PUSH REAL URLS
+src/environments/environment.ts
+src/environments/environment.prod.ts
+.env
+.env.*
+*.key
+*.pem
+
 # IDEs and editors
 .idea/
 .project
@@ -44,14 +55,11 @@ yarn-error.log
 *.sublime-project
 *.sublime-workspace
 
-# Visual Studio Code
+# Visual Studio Code - keep all vscode ignored
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
 !.vscode/extensions.json
-.history/*
 
+.history/*
 
 # Miscellaneous
 /.angular

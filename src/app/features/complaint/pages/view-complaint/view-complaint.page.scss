@@ -1,0 +1,95 @@
+.view-complaint-content {
+  --background:#F2F5F9;
+
+  // Constants - same for all cards
+  $card-radius:16px;
+  $card-padding:14px;
+  $card-border:1px solid #EEF2F7;
+  $card-shadow:0 8px 24px rgba(0,0,0,0.06);
+
+  app-dashboard-header { display:block; margin-bottom:8px; }
+
+.page-header{
+  background:#fff;
+  border-radius:16px; // ✅ same as other cards
+  margin:0 12px 12px 12px; // ✅ gap on all sides
+  padding:16px 18px; // ✅ same padding as title-section
+  border:1px solid #EEF2F7; // ✅ same border
+  box-shadow:0 8px 24px rgba(0,0,0,0.06); // ✅ same shadow
+  h2{
+    margin:0;
+    font-size:20px;
+    font-weight:800;
+    color:#111827;
+    letter-spacing:-0.2px;
+  }
+}
+
+  .outer-card{
+    background:#fff;
+    border-radius:20px;
+    margin:0 12px 12px 12px;
+    padding:14px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.06);
+    border:$card-border;
+    display:flex;
+    flex-direction:column;
+    gap:14px; // same gap everywhere
+  }
+
+  // ✅ ALL inner cards - same style
+  .title-section.with-shadow,
+  app-complaint-id-card,
+  app-info-chips-row,
+  app-incident-address-card,
+  .note-section,
+  app-inspection-notes-card {
+    border-radius:$card-radius;
+    padding:$card-padding;
+    border:$card-border;
+    box-shadow:$card-shadow;
+    background:#fff;
+  }
+
+  // Complaint detail text - consistent
+  .title-section.with-shadow{
+    background:#fff;
+    h1{margin:0 0 8px; font-size:16px; font-weight:800; color:#111827; line-height:1.35;}
+    p{margin:0; font-size:13px; color:#6B7280; line-height:1.6;}
+  }
+
+  .note-section {
+    background:#F8FBFF;
+    border:1.2px solid #DCE8FF;
+    .note-head{ font-size:11px; font-weight:800; color:#1A56DB; margin-bottom:2px; }
+    .native-note {
+      width:100%; min-height:110px; background:#fff; border:1.2px solid #E5E7EB;
+      border-radius:12px; padding:12px; font-size:13px; color:#111827;
+      font-family:inherit; resize:none; outline:none; box-sizing:border-box;
+      &::placeholder{ color:#9CA3AF; }
+      &:focus{ border-color:#1A56DB; box-shadow:0 0 0 3px rgba(26,86,219,0.08); }
+    }
+    .note-display{ background:#fff; border-radius:12px; padding:12px; font-size:13px; border:1px solid #EEF2F7; }
+  }
+
+  .action-row{ display:flex; gap:12px; margin-top:4px; app-button{flex:1;} }
+  .loading{ display:grid; place-items:center; padding:80px 20px; gap:12px; }
+}
+
+// Force hide bottom nav
+:host ::ng-deep .custom-bottom-nav { display:none !important; }
+
+// Fix ionic shadow DOM that makes textarea black
+:host ::ng-deep {
+  ion-textarea .native-textarea,
+  ion-textarea .textarea-wrapper,
+  ion-textarea::part(native) {
+    background:#fff !important;
+    color:#111827 !important;
+  }
+
+  .custom-bottom-nav,
+  .bottom-nav {
+    display:none !important;
+  }
+}

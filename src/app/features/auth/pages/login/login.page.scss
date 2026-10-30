@@ -1,0 +1,7 @@
+.info-banner {
+  display:flex; gap:10px; background:#f1f5ff; border-radius:14px; padding:12px; margin:14px 0 18px;
+  .info-icon{ width:20px;height:20px;background:#1a56db;color:#fff;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:2px; }
+  b{ font-size:12.5px;color:#0f172a;display:block; }
+  .chips{ margin-top:6px;display:flex;gap:6px;flex-wrap:wrap; span{background:#e2e8f0;color:#334155;font-size:11px;padding:3px 8px;border-radius:6px;font-weight:600;font-family:monospace} }
+}
+.register-link{ text-align:center;margin-top:18px;font-size:14px;color:#64748b; b{color:#1a56db;cursor:pointer} }

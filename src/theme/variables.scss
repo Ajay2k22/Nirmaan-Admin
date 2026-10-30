@@ -1,2 +1,44 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
+:root {
+  --ion-font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* PRIMARY - Royal Blue */
+  --ion-color-primary: #1A56DB;
+  --ion-color-primary-rgb: 26,86,219;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade: #174cc1;
+  --ion-color-primary-tint: #3167df;
+
+  /* SECONDARY - Light Blue */
+  --ion-color-secondary: #E8EEFE;
+  --ion-color-secondary-rgb: 232,238,254;
+  --ion-color-secondary-contrast: #1A56DB;
+
+  /* ACCENT - Dark Blue */
+  --ion-color-tertiary: #0B3D91;
+
+  /* Background */
+  --ion-background-color: #F8F9FE;
+  --ion-card-background: #ffffff;
+
+  /* Status Colors */
+  --nm-pending: #F59E0B;
+  --nm-inprogress: #3B82F6;
+  --nm-approve: #10B981;
+  --nm-reject: #EF4444;
+
+  --nm-pending-bg: #FEF3C7;
+  --nm-inprogress-bg: #DBEAFE;
+  --nm-approve-bg: #D1FAE5;
+  --nm-reject-bg: #FEE2E2;
+
+  --nm-text-dark: #1F2937;
+  --nm-text-secondary: #6B7280;
+  --nm-border: #E5E7EB;
+  --nm-radius-card: 12px;
+  --nm-radius-button: 16px;
+  --nm-radius-sheet: 20px;
+  --nm-shadow: 0 4px 24px rgba(26,86,219,0.08);
+  --nm-shadow-lg: 0 10px 40px rgba(26,86,219,0.12);
+}

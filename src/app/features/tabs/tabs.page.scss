@@ -1,0 +1,77 @@
+.nirmaan-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background: #f8f9fb;
+  overflow: hidden;
+
+  // TOP - SCROLLABLE
+  .content-area {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    // Hide scrollbar but keep scroll
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  // BOTTOM - FIXED NAV - EXACT FIGMA
+  .bottom-nav {
+    height: 76px;
+    min-height: 76px;
+    background: #ffffff;
+    border-top: 1px solid #eef0f2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: var(--ion-safe-area-bottom, 0px);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.04);
+    z-index: 1000;
+
+    .nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      ion-icon {
+        font-size: 24px;
+        color: #6b7280;
+        transition: all 0.2s ease;
+      }
+
+      span {
+        font-size: 12px;
+        font-weight: 600;
+        color: #6b7280;
+        letter-spacing: 0.1px;
+      }
+
+      // Active - Blue like Figma
+      &.active {
+        ion-icon, span {
+          color: #1a56db;
+          font-weight: 700;
+        }
+        ion-icon {
+          transform: scale(1.05);
+        }
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+}

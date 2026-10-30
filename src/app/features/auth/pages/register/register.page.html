@@ -1,0 +1,71 @@
+<app-auth-layout
+  title="Create Account"
+  subtitle="Join municipal infrastructure governance & site tracking"
+>
+  <!-- <div class="nm-header">
+    <div class="nm-logo">NM</div>
+    <div class="corps-chip">🏛 CIVIL ENGINEERING CORPS</div>
+  </div> -->
+
+  <div class="field-label">
+    <span>🏢 Municipal Corporation</span><b class="code">MNC-421501</b>
+  </div>
+  <app-input
+    label="MUNICIPAL CORPORATION"
+    placeholder="Ambernath (MC)"
+    icon="business-outline"
+    rightIcon="chevron-down-outline"
+    [(ngModel)]="form.mnc"
+  ></app-input>
+  <div class="sub-text">Thane District, Division 4</div>
+
+  <div class="field-label">
+    <span>◇ Department Unit</span><b class="code">CODE: RDS-ENG</b>
+  </div>
+  <app-input
+    label="DEPARTMENT UNIT"
+    placeholder="ROADS & HIGHWAYS"
+    icon="layers-outline"
+    rightIcon="chevron-down-outline"
+    [(ngModel)]="form.dept"
+  ></app-input>
+  <div class="sub-text">Civil Public Works Directorate</div>
+
+  <!-- <div class="field-label"><span>🪪 Civil Officer Designation</span></div>
+  <app-input label="DESIGNATION" placeholder="Junior Engineer / Site Supervisor" icon="person-outline" rightIcon="shield-checkmark-outline" [(ngModel)]="form.designation"></app-input>
+  <div class="sub-text">Grade II Inspectorate Field Role</div> -->
+
+  <div class="field-label">
+    <span>🔒 Access Passkey</span><span class="strong">● STRONG</span>
+  </div>
+  <app-input
+    label="ACCESS PASSKEY"
+    placeholder="••••••••••••"
+    type="password"
+    icon="key-outline"
+    [(ngModel)]="form.passkey"
+  ></app-input>
+  <div class="strength-bar">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <p class="hint">Passkey meets standard 12-char institutional entropy.</p>
+
+  <div class="terms">
+    <input type="checkbox" [(ngModel)]="form.agree" id="agree" />
+    <label for="agree"
+      >By registering you agree to citizen guidelines & civic accountability
+      norms under the State Municipal Transparency Act.</label
+    >
+  </div>
+
+  <app-button
+    label="Register Official Profile"
+    [loading]="loading"
+    (clicked)="onRegister()"
+  ></app-button>
+
+  <div class="register-link">
+    Already registered? <b (click)="goLogin()">Sign in to Portal</b>
+  </div>
+  <div class="auth-only">⚖️ Authorized Municipal Use Only</div>
+</app-auth-layout>

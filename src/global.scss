@@ -1,37 +1,50 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
-
-/* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
-
-/* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css";
+@import "leaflet/dist/leaflet.css";
 
-/* Optional CSS utils that can be commented out */
-@import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
+* { font-family: var(--ion-font-family); }
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+body {
+  background: #F8F9FE;
+  color: var(--nm-text-dark);
+  -webkit-font-smoothing: antialiased;
+}
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+/* APP CONTAINER - 390x844 mobile view centered */
+ion-app {
+  max-width: 440px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--nm-border);
+  @media(min-width: 500px) {
+    box-shadow: 0 20px 80px rgba(0,0,0,0.15);
+    height: 844px;
+    margin-top: 20px;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+}
+
+/* ✅ FIXED TOAST - Force bottom of VIEWPORT, not app */
+/* ✅ FIXED TOAST - Keep Ionic colors */
+ion-toast.nirmaan-bottom-toast {
+  --border-radius: 12px;
+  --max-width: 380px;
+  --width: 90%;
+  --box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  bottom: 90px !important;
+  --bottom: 90px !important;
+}
+
+
+/* Optional: Make text white for all toasts */
+ion-toast.nirmaan-bottom-toast::part(message) {
+  color: #fff;
+  font-weight: 500;
+}
+/* Toast message styling */
+ion-toast.nirmaan-bottom-toast::part(container) {
+  border-radius: 12px;
+}

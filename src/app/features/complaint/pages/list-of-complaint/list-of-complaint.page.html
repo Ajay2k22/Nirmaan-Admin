@@ -1,0 +1,43 @@
+<ion-content [fullscreen]="false" class="complaint-list-content">
+  <app-dashboard-header title="Nirmaan" subtitle=""></app-dashboard-header>
+
+  <div class="page-title">
+    <div><h2>Civic Complaints</h2></div>
+    <button class="refresh-btn" (click)="loadComplaints()">
+      <ion-icon name="refresh-outline"></ion-icon>
+    </button>
+  </div>
+
+  <!-- ✅ Component kept -->
+  <app-search-bar
+    [searchText]="searchText"
+    (searchChange)="onSearch($event)">
+  </app-search-bar>
+
+  <!-- ✅ Component kept, In-Progress removed via filterChips getter -->
+  <app-filter-chips
+    [chips]="filterChips"
+    [selectedKey]="selectedFilter"
+    (filterChange)="filterByStatus($event)">
+  </app-filter-chips>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <ion-spinner name="crescent"></ion-spinner>
+    <span>Loading complaints...</span>
+  </div>
+
+  <!-- ✅ Component kept -->
+  <div class="cards-list" *ngIf="!loading">
+    <app-complaint-card
+      *ngFor="let c of filteredComplaints"
+      [complaint]="c"
+      (cardClick)="viewComplaint($event)">
+    </app-complaint-card>
+
+    <div *ngIf="filteredComplaints.length === 0" class="empty">
+      <ion-icon name="document-outline"></ion-icon>
+      <p>No complaints found for {{ selectedFilter }}</p>
+    </div>
+  </div>
+</ion-content>

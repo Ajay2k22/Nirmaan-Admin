@@ -1,0 +1,35 @@
+<ion-content class="dashboard-content">
+  <!-- ✅ AMBERNATH text removed from header -->
+  <app-dashboard-header title="Nirmaan" subtitle=""></app-dashboard-header>
+
+  <!-- ✅ Dashboard title above status cards -->
+  <div class="dashboard-title">
+    <h2>Dashboard</h2>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading-screen">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Loading complaints...</p>
+  </div>
+
+  <ng-container *ngIf="!loading">
+    <!-- ✅ In-Progress removed via Input flag -->
+    <app-status-cards
+      [pending]="counts.pending"
+      [approve]="counts.approve"
+      [reject]="counts.reject"
+      [showInProgress]="false"
+    >
+    </app-status-cards>
+
+    <app-complaint-map
+      [activeCount]="mapComplaints.length"
+      [complaints]="mapComplaints"
+      (viewDetails)="onViewDetails($event)"
+    >
+    </app-complaint-map>
+  </ng-container>
+
+  <div style="height: 100px"></div>
+</ion-content>

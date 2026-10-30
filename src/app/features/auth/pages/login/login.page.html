@@ -1,0 +1,49 @@
+<app-auth-layout
+  title="Officer Access"
+  subtitle="Municipal administration & field console"
+>
+  <app-input
+    label="MNC CODE"
+    placeholder="e.g. Ambernath"
+    icon="business-outline"
+    rightIcon="checkmark-circle-outline"
+    [(ngModel)]="form.mnc"
+  ></app-input>
+
+  <app-input
+    label="DEPT CODE"
+    placeholder="e.g. ROADS"
+    icon="layers-outline"
+    rightIcon="business-outline"
+    [(ngModel)]="form.dept"
+  ></app-input>
+
+  <app-input
+    label="PASSWORD"
+    placeholder="••••"
+    type="password"
+    icon="lock-closed-outline"
+    [(ngModel)]="form.pwd"
+  ></app-input>
+
+  <div class="info-banner">
+    <div class="info-icon">i</div>
+    <div>
+      <b>Demo Credentials Configured</b>
+      <div class="chips">
+        <span>MNC: Ambernath</span><span>Dept: ROADS</span
+        ><span>Pwd: Amb@123</span>
+      </div>
+    </div>
+  </div>
+
+  <app-button
+    label="Login to Portal"
+    [loading]="loading"
+    (clicked)="onLogin()"
+  ></app-button>
+
+  <div class="register-link">
+    Don't have an account? <b (click)="goRegister()">Register</b>
+  </div>
+</app-auth-layout>

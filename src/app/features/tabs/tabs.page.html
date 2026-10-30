@@ -1,0 +1,27 @@
+<div class="nirmaan-layout">
+  <!-- TOP PART - SCROLLABLE CONTENT -->
+  <div class="content-area">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
+
+  <!-- BOTTOM PART - FIXED NAV BAR -->
+  <div class="bottom-nav">
+    <div
+      class="nav-item"
+      [class.active]="activeTab === 'dashboard'"
+      (click)="goTo('dashboard')"
+    >
+      <ion-icon name="apps-outline"></ion-icon>
+      <span>Dashboard</span>
+    </div>
+
+    <div
+      class="nav-item"
+      [class.active]="activeTab === 'list-of-complaint'"
+      (click)="goTo('list-of-complaint')"
+    >
+      <ion-icon name="clipboard-outline"></ion-icon>
+      <span>Complaints</span>
+    </div>
+  </div>
+</div>
